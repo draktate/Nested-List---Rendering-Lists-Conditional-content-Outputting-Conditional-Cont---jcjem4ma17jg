@@ -1,5 +1,7 @@
 import React, { Component, useState } from "react";
+import { renderIntoDocument } from "react-dom/test-utils";
 import "./../styles/App.css";
+import City from "./City"
 
 // Do not alter the states const and values inside it.
 const states = [
@@ -154,8 +156,42 @@ const states = [
   },
 ];
 
+
+
+
+
+
+
+
 function App() {
-  return <div id="main"></div>;
+  
+  
+  const [currState, setCurrState] = useState("");
+  //const [elementName, setElementName] = useState("");
+  const[display, setDisplay] = useState(false);
+
+  const outPut=<div id="main"> 
+  <ul>
+  {
+    states.map((item, index)=>  
+    <li key={"state"+index} id={"state"+index}  onClick={(event)=>{  setCurrState(item.name); setDisplay(!display);} } > 
+    {item.name}
+    
+    <City cities={states.filter(row=> row.name ==item.name)[0].cities} state={item.name} currState={currState} dc={display}  >
+    </City> 
+    
+    </li>)} 
+  </ul>  
+  </div>;
+ 
+  
+  //const [outPut, setOutput]=useState();
+
+ 
+
+  
+  return   outPut;
+  
 }
 
 export default App;
