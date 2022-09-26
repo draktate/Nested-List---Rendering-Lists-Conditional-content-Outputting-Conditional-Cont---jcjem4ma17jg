@@ -24,7 +24,7 @@ function City( props)
   {
     innerList=<div >
     <ul>
-      {cities.map((item,index)=> <li key={"city"+index} onClick={(event)=>{  event.stopPropagation();   setCurrCity(item.name); setDisplay(!display);}}> 
+      {cities.map((item,index)=> <li key={"city"+parseInt(index+1)} onClick={(event)=>{  event.stopPropagation();   setCurrCity(item.name); setDisplay(!display);}}> 
       {item.name}
       <Town towns={cities.filter(row=> row.name ==item.name)[0].towns} city={item.name} currCity={currCity} dt={display} > </Town>
       </li> )} 

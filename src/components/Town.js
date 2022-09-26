@@ -27,7 +27,7 @@ function Town( props)
   {
     innerList=<div >
     <ul>
-      {towns.map((item,index)=> <li key={"town"+index} onClick={(event)=>{event.stopPropagation();}} > 
+      {towns.map((item,index)=> <li key={"town"+parseInt(index+1)} onClick={(event)=>{event.stopPropagation();}} > 
       {item.name}
       
       </li> )} 

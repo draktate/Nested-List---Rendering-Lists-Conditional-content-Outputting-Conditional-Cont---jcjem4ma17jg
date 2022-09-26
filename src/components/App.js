@@ -174,7 +174,7 @@ function App() {
   <ul>
   {
     states.map((item, index)=>  
-    <li key={"state"+index} id={"state"+index}  onClick={(event)=>{  setCurrState(item.name); setDisplay(!display);} } > 
+    <li key={"state"+parseInt(index+1)} id={"state"+parseInt(index+1)}  onClick={(event)=>{  setCurrState(item.name); setDisplay(!display);} } > 
     {item.name}
     
     <City cities={states.filter(row=> row.name ==item.name)[0].cities} state={item.name} currState={currState} dc={display}  >
