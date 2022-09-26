@@ -23,7 +23,7 @@ function Town( props)
   
   let innerList=<div> nothing </div>
 
-  if(props.currCity== props.city&&dt)
+  if(props.seleCities.includes( props.city))
   {
     innerList=<div >
     <ul>

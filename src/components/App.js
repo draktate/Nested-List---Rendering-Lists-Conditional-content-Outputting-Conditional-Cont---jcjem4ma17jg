@@ -165,19 +165,38 @@ const states = [
 
 function App() {
   
+  const [seleStates, setSeleStates] = useState([]);
   
-  const [currState, setCurrState] = useState("");
-  //const [elementName, setElementName] = useState("");
-  const[display, setDisplay] = useState(false);
+  const updatedStates=(event, state)=>{
+     let newList=[...seleStates];
+
+     //console.log("newList:", newList);
+      if(newList.includes(state))
+      {
+        for(let i=0; i<newList.length; i++)
+        {
+          if(newList[i]== state)
+          {
+            newList.splice(i, 1);
+            break;
+          }
+        }
+      }
+      else 
+      newList.push(state);
+
+      return newList;
+
+  };
 
   const outPut=<div id="main"> 
   <ul>
   {
     states.map((item, index)=>  
-    <li key={"state"+parseInt(index+1)} id={"state"+parseInt(index+1)}  onClick={(event)=>{  setCurrState(item.name); setDisplay(!display);} } > 
+    <li key={"state"+parseInt(index+1)} id={"state"+parseInt(index+1)}  onClick={(event)=>{ setSeleStates(updatedStates(seleStates,item.name)); } } > 
     {item.name}
     
-    <City cities={states.filter(row=> row.name ==item.name)[0].cities} state={item.name} currState={currState} dc={display}  >
+    <City cities={states.filter(row=> row.name ==item.name)[0].cities} state={item.name} seleStates={seleStates} >
     </City> 
     
     </li>)} 
