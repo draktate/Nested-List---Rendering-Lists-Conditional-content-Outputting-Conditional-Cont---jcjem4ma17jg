@@ -39,13 +39,13 @@ function City( props)
 //  const [displayCity, setDisplayCity]= useState(true);
   let cities = props.cities;
   
-  let innerList=<div> nothing </div>
+  let innerList=<div>  </div>
 
   if(props.seleStates.includes( props.state))
   {
     innerList=<div >
     <ul>
-      {cities.map((item,index)=> <li key={"city"+parseInt(index+1)} onClick={(event)=>{  event.stopPropagation();   
+      {cities.map((item,index)=> <li key={"city"+parseInt(index+1)}  id={"city"+parseInt(index+1)} onClick={(event)=>{  event.stopPropagation();   
         setSeleCities(updatedCities(item.name))
          }}> 
       {item.name}
